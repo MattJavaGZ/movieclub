@@ -1,0 +1,10 @@
+insert into genre (name, description) values ('Comedy', 'Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.');
+insert into genre (name, description) values ('Action', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.');
+insert into genre (name, description) values ('Western', 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.');
+insert into genre (name, description) values ('Documentary', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.');
+insert into genre (name, description) values ('Horror', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.');
+insert into genre (name, description) values ('Historic', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.');
+insert into genre (name, description) values ('Science fiction', 'Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.');
+insert into genre (name, description) values ('Drama', 'In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.');
+insert into genre (name, description) values ('Psychological', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.');
+insert into genre (name, description) values ('Story', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.');
