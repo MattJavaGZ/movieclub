@@ -1,15 +1,20 @@
 package matt.pas.movieclub.domain.movie.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
 public class MovieSaveDto {
-
+    @NotEmpty()
     private String title;
     private String originalTitle;
     private int releaseYear;
+    @Size(max = 200, message = "Skrócony opis musi być krótszy niż {max}")
     private String shortDescription;
     private String description;
     private String youtubeTrailerId;
+    @NotNull()
     private String genre;
     private boolean promoted;
     private MultipartFile poster;

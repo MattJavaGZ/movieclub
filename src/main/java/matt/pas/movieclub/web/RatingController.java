@@ -16,7 +16,8 @@ public class RatingController {
         this.ratingService = ratingService;
     }
     @PostMapping("/ocen-film")
-    public String addRating(@RequestParam long movieId, @RequestParam int rating, @RequestHeader String referer, Authentication authentication) {
+    public String addRating(@RequestParam long movieId, @RequestParam int rating, @RequestHeader String referer,
+                            Authentication authentication) {
         final String userEmail = authentication.getName();
         ratingService.addOrUpdateRating(userEmail, movieId, rating);
         return "redirect:" + referer;

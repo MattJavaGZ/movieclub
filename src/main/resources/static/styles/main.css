@@ -292,6 +292,12 @@ i powinna zajmować większość dostępnej przestrzeni
         margin: 0 4px;
     }
 }
+/*Mniejszy trailer na mobilach*/
+@media only screen and (max-width: 992px) {
+    .movie-trailer {
+        max-width: 350px;
+    }
+}
 
 /*error pages START*/
 .error-container {
@@ -384,4 +390,7 @@ textarea {
 .registration-link {
     text-align: center;
     margin-top: 32px;
+}
+.error{
+    color: red;
 }

@@ -11,16 +11,20 @@
 
         <form action="#" th:action="@{/admin/dodaj-film}" method="post" enctype="multipart/form-data" th:object="${movie}" class="mc-form">
             <label for="title">Tytuł filmu</label>
-            <input type="text" id="title" placeholder="Przykłądowy tytuł" th:field="*{title}">
+            <input type="text" id="title" placeholder="Przykłądowy tytuł" th:field="*{title}" required>
+            <p th:errors="*{title}" class="error">Błędy związane z tytułem</p>
             <label for="originalTitle">Oryginalny tytuł</label>
+
             <input type="text" id="originalTitle" placeholder="Example title" th:field="*{originalTitle}">
             <label for="releaseYear">Rok premiery</label>
             <input type="number" id="releaseYear" placeholder="2019" th:field="*{releaseYear}">
             <label for="genre">Kategoria</label>
-            <select id="genre" th:field="*{genre}">
+            <select id="genre" th:field="*{genre}" required>
                 <option value="" hidden>Wybierz gatunek</option>
                 <option th:each="genre: ${genres}" th:value="${genre.name}" th:text="${genre.name}"></option>
             </select>
+            <p th:errors="*{genre}" class="error">Błędy związane z kategorią</p>
+
             <label for="promoted">Promowanie na stronie głównej?</label>
             <input type="checkbox" id="promoted" th:field="*{promoted}">
             <label for="poster">Plakat/grafika filmu</label>
@@ -29,6 +33,8 @@
             <input type="text" id="youtubeTrailerId" th:field="*{youtubeTrailerId}">
             <label for="shortDescription">Krótki opis (max 200 znaków)</label>
             <textarea id="shortDescription" th:field="*{shortDescription}" rows="5"></textarea>
+            <p th:errors="*{shortDescription}" class="error">Błędy związane z krótki opisem</p>
+
             <label for="description">Pełny opis filmu</label>
             <textarea id="description" rows="10" th:field="*{description}"></textarea>
             <button type="submit">Dodaj film</button>
