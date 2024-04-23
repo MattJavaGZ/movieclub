@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Wyszukiwanie filmów</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+    <h2 class="list-heading">Wyszukaj film po tytule lub jego fragmencie</h2>
+
+    <form class="mc-form" action="#" th:action="@{/find}">
+        <input type="text" id="title" name="title" placeholder="Wpisz tytuł...">
+        <button type="submit">Szukaj</button>
+    </form>
+</main>
+</body>
+</html>
