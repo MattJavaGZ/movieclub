@@ -235,6 +235,7 @@ i powinna zajmować większość dostępnej przestrzeni
 /*Odstęp pod nagłówkami sekcji*/
 .movie-section-heading {
     margin-bottom: 8px;
+    text-align: center;
 }
 
 /*Wyśrodkowanie trailera*/
@@ -295,7 +296,7 @@ i powinna zajmować większość dostępnej przestrzeni
 /*Mniejszy trailer na mobilach*/
 @media only screen and (max-width: 992px) {
     .movie-trailer {
-        max-width: 350px;
+        max-width: 330px;
     }
 }
 
@@ -394,3 +395,42 @@ textarea {
 .error{
     color: red;
 }
+/*Komentarze start*/
+.comments-section{
+    margin-top: 16px;
+    border: 1px #6d6d6d solid;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.comment-form{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 30px;
+}
+
+.comment-form > button{
+    margin-top: 16px;
+    background-color: white;
+    color: black;
+}
+.comment-form > textarea{
+    font-size: 1.2rem;
+    color: black;
+    padding: 8px;
+}
+.added-coments > ul > li{
+    list-style-type: none;
+    text-align: center;
+}
+.comment{
+    margin: 10px 30px;
+    border: 1px #6d6d6d solid;
+    text-align: center;
+}
+.comment-date{
+    font-size: 10px;
+}
+.add-comment{
+    text-align: center;
+}
+/*komentarze stop*/

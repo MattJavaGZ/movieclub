@@ -66,4 +66,9 @@ public class MovieService {
                 .map(MovieDtoMapper::map)
                 .toList();
     }
+    public List<MovieDto> findByTitle(String title){
+       return movieRepository.findAllByTitleContainsIgnoreCase(title).stream()
+                .map(MovieDtoMapper::map)
+                .toList();
+    }
 }

@@ -23,6 +23,7 @@ public class CustomSecurityConfig {
         http.authorizeHttpRequests(
                 request -> request
                         .requestMatchers("/ocen-film").authenticated()
+                        .requestMatchers("/dodaj-komentarz").authenticated()
                         .requestMatchers("/admin/**").hasAnyRole(EDITOR_ROLE, ADMIN_ROLE)
                         .anyRequest().permitAll()
         );

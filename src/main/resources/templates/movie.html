@@ -66,15 +66,38 @@
         <!-- opis -->
         <section class="movie-section">
             <h2 class="movie-section-heading">Opis</h2>
-            <p th:text="${movie.description}">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+            <p th:text="${movie.description}">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                ante sollicitudin. Cras
                 purus odio, vestibulum in vulputate at,
                 tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue
                 felis in faucibus.</p>
         </section>
 
+        <section class="comments-section">
+            <h2 class="movie-section-heading">Komentarze</h2>
+            <div class="added-coments">
+                <ul>
+                    <li th:each="comment: ${comments}" class="comment">
+                        <p th:text="|Dodany: ${#temporals.format(comment.getDateAdded(), 'dd-MM-yyyy HH:mm')}|"
+                           class="comment-date">Dodana
+                            22-07-2021</p>
+                        <p  th:text="${comment.content}"></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="add-comment">
+                <form action="#" th:action="@{/dodaj-komentarz}" method="post" class="comment-form" sec:authorize="authenticated">
+                    <input type="number" hidden="hidden" name="movieId" th:value="${movie.id}">
+                    <textarea id="content" name="content" rows="4" cols="50"
+                              placeholder="Tutaj wpisz treść komentarza"></textarea>
+                    <button type="submit">Zapisz komentarz</button>
+                </form>
+                <p sec:authorize="!isAuthenticated()">
+                    <a href="#" th:href="@{/login}">Zaloguj się</a>, aby oddać głos</p>
+            </div>
 
+        </section>
     </main>
-
 </div>
 </body>
 </html>

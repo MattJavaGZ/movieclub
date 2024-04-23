@@ -12,4 +12,6 @@ public interface MovieRepository extends CrudRepository<Movie, Long> {
     List<Movie> findAllByGenre_NameIgnoreCase (String genreName);
     @Query("select m from Movie m join m.ratings r group by m order by avg(r.rating) desc ")
     List<Movie> findTopByRating(Pageable pages);
+
+    List<Movie> findAllByTitleContainsIgnoreCase(String title);
 }

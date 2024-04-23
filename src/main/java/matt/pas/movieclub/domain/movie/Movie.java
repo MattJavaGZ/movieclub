@@ -1,6 +1,7 @@
 package matt.pas.movieclub.domain.movie;
 
 import jakarta.persistence.*;
+import matt.pas.movieclub.domain.comment.Comment;
 import matt.pas.movieclub.domain.genre.Genre;
 import matt.pas.movieclub.domain.rating.Rating;
 
@@ -113,4 +114,6 @@ public class Movie {
     public void setRatings(List<Rating> ratings) {
         this.ratings = ratings;
     }
+
+
 }
