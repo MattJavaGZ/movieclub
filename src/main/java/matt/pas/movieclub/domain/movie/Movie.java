@@ -2,6 +2,7 @@ package matt.pas.movieclub.domain.movie;
 
 import jakarta.persistence.*;
 import matt.pas.movieclub.domain.comment.Comment;
+import matt.pas.movieclub.domain.comment.CommentService;
 import matt.pas.movieclub.domain.genre.Genre;
 import matt.pas.movieclub.domain.rating.Rating;
 
@@ -24,6 +25,8 @@ public class Movie {
     private Genre genre;
     @OneToMany(mappedBy = "movie")
     private List<Rating> ratings = new ArrayList<>();
+    @OneToMany(mappedBy = "movie")
+    private List<Comment> comments = new ArrayList<>();
     private boolean promoted;
     private String poster;
 
@@ -115,5 +118,11 @@ public class Movie {
         this.ratings = ratings;
     }
 
+    public List<Comment> getComments() {
+        return comments;
+    }
 
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 }

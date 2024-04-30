@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+      layout:decorate="~{layout}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Lista kategorii - MovieClub</title>
 </head>
@@ -17,6 +18,14 @@
             <a th:href="@{|/gatunek/${genre.name}|}"
                th:text="${genre.name}">
                 Horror
+            </a>
+            <a href="#" th:href="@{|/admin/edytuj-gatunek/${genre.id}|}" sec:authorize="hasAnyRole('ADMIN', 'EDITOR')"
+               class="edit-genre-link">
+                - Edytuj
+            </a>
+            <a href="#" th:href="@{|/admin/usun-gatunek/${genre.id}|}" sec:authorize="hasAnyRole('ADMIN', 'EDITOR')"
+               class="edit-genre-link">
+                - Usuń
             </a>
         </li>
     </ul>

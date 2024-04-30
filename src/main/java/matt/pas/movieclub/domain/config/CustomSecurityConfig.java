@@ -17,14 +17,17 @@ public class CustomSecurityConfig {
     private static final String USER_ROLE = "USER";
     private static final String EDITOR_ROLE = "EDITOR";
     private static final String ADMIN_ROLE = "ADMIN";
+    private static  final String BLOCK_ROLE = "BLOCK";
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
                 request -> request
-                        .requestMatchers("/ocen-film").authenticated()
-                        .requestMatchers("/dodaj-komentarz").authenticated()
-                        .requestMatchers("/admin/**").hasAnyRole(EDITOR_ROLE, ADMIN_ROLE)
+                        .requestMatchers("/ocen-film").hasAnyRole(USER_ROLE, EDITOR_ROLE, ADMIN_ROLE)
+                        .requestMatchers("/dodaj-komentarz").hasAnyRole(USER_ROLE, EDITOR_ROLE, ADMIN_ROLE)
+                        .requestMatchers("/user/**").hasAnyRole(USER_ROLE, BLOCK_ROLE)
+                        .requestMatchers("/admin/lista-uzytkownikow/**").hasRole(ADMIN_ROLE)
+                        .requestMatchers("/usun-komentarz/**","/admin/**").hasAnyRole(EDITOR_ROLE, ADMIN_ROLE)
                         .anyRequest().permitAll()
         );
         http.formLogin(login -> login.loginPage("/login").permitAll());

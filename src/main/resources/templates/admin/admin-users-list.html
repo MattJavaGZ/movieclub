@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}">
+<head>
+    <title>Lista użytkowników</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+    <h2 class="list-heading">Lista użytkowników</h2>
+
+    <table border="1" class="users-admin-list">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Zmiana email</th>
+            <th>Zmiana hasła</th>
+            <th>Blokowanie</th>
+            <th>Usunięcie</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${users}">
+            <td class="users-admin-list-td" th:text="${user.id}">id</td>
+            <td th:text="${user.email}">email</td>
+            <td th:text="${user.roles}">rola 1, rola 2</td>
+            <td><a href="#" th:href="@{|/admin/lista-uzytkownikow/edycja-email/${user.id}|}">Edytuj email</a></td>
+            <td><a href="#" th:href="@{|/admin/lista-uzytkownikow/edycja-password/${user.id}|}">Edytuj hasło</a></td>
+            <td><a th:if="${user.getRoles().contains('USER') || user.getRoles().contains('BLOCK') }" href="#"
+                   th:href="@{|/admin/lista-uzytkownikow/${user.getRoles().contains('BLOCK')? 'odblokuj' : 'zablokuj'}/${user.id}|}"
+                   th:text="${user.getRoles().contains('BLOCK')? 'Odblokuj' : 'Zablokuj'}">Zablokuj</a></td>
+            <td><a href="#" th:href="@{|/admin/lista-uzytkownikow/usun/${user.id}|}">Usuń</a></td>
+
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

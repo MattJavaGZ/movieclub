@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>Formularz edycji filmu</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+  <h2 class="list-heading">Edytuj film</h2>
+
+  <form action="#" th:action="@{|/admin/edytuj-film/${id}|}" method="post" enctype="multipart/form-data" th:object="${movie}"
+        class="mc-form">
+    <label for="title">Tytuł filmu</label>
+    <input type="text" id="title" placeholder="Przykłądowy tytuł" th:field="*{title}" th:value="*{title}" required>
+    <p th:errors="*{title}" class="error">Błędy związane z tytułem</p>
+
+    <label for="originalTitle">Oryginalny tytuł</label>
+    <input type="text" id="originalTitle" placeholder="Example title" th:field="*{originalTitle}" th:value="*{originalTitle}">
+    <label for="releaseYear">Rok premiery</label>
+    <input type="number" id="releaseYear" placeholder="2019" th:field="*{releaseYear}" th:value="*{releaseYear}">
+    <label for="genre">Kategoria</label>
+    <select id="genre" th:field="*{genre}" th:value="*{genre}" required>
+      <option value="" hidden>Wybierz gatunek</option>
+      <option th:each="genre: ${genres}" th:value="${genre.name}" th:text="${genre.name}"></option>
+    </select>
+    <p th:errors="*{genre}" class="error">Błędy związane z kategorią</p>
+
+    <label for="promoted">Promowanie na stronie głównej?</label>
+    <input type="checkbox" id="promoted" th:field="*{promoted}" th:value="*{promoted}">
+    <label for="poster">Plakat/grafika filmu</label>
+    <input type="file" id="poster" th:field="*{poster}" accept="image/png, image/jpeg">
+    <label for="youtubeTrailerId">Identyfikator trailera Youtube</label>
+    <input type="text" id="youtubeTrailerId" th:field="*{youtubeTrailerId}" th:value="*{youtubeTrailerId}">
+    <label for="shortDescription">Krótki opis (max 200 znaków)</label>
+    <textarea id="shortDescription" th:field="*{shortDescription}" rows="5" th:value="*{shortDescription}"></textarea>
+    <p th:errors="*{shortDescription}" class="error">Błędy związane z krótki opisem</p>
+
+    <label for="description">Pełny opis filmu</label>
+    <textarea id="description" rows="10" th:field="*{description}" th:value="*{description}"></textarea>
+    <button type="submit">Zapisz zmiany</button>
+  </form>
+</main>
+
+</body>
+</html>

@@ -1,8 +1,15 @@
 package matt.pas.movieclub.domain.genre.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class GenreDto {
     private Long id;
+    @NotEmpty(message = "Nazwa kategorii nie może być pusta")
     private String name;
+    @Size(max = 500, message = "Opis może zawieraź maksymalnie 500 znaków")
+    @NotEmpty(message = "Opis kategorii nie może być pusty")
     private String description;
 
     public GenreDto() {

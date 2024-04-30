@@ -42,4 +42,7 @@ public class CommentService {
         commentToSave.setDateAdded(LocalDateTime.now());
         commentRepository.save(commentToSave);
     }
+    public void deleteById(long id){
+        commentRepository.deleteById(id);
+    }
 }

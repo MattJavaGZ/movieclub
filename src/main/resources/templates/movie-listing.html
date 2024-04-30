@@ -26,12 +26,15 @@
                         <h4 th:text="${movie.oryginalTitle}">Angielski tytuł filmu</h4>
                         <p th:text="${movie.releaseYear}">1999</p>
                     </div>
-                    <div class="movie-list-item-rating">
-                        <i class="fas fa-star"></i>
-                        <span th:if="${movie.avgRating}" th:text="${#numbers.formatDecimal(movie.avgRating, 1, 1)}">8.7</span>
-                        <span th:if="!${movie.avgRating}" >Brak ocen</span>
+                        <div class="movie-list-item-rating">
+                            <i class="fas fa-star"></i>
+                            <span th:if="${movie.avgRating}" th:text="${#numbers.formatDecimal(movie.avgRating, 1, 1)}">8.7</span>
+                            <span th:if="!${movie.avgRating}" >Brak ocen</span>
+                        </div>
+
                     </div>
-                </div>
+
+
             </li>
 
             <li class="movie-list-item">

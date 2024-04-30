@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>Formularz edycji kategorii</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+  <h2 class="list-heading">Edytuj gatunek filmowy</h2>
+
+  <form action="#" th:action="@{|/admin/edytuj-gatunek/${id}|}" class="mc-form" method="post" th:object="${genre}">
+    <label for="genreName">Nazwa kategorii</label>
+    <input type="text" id="genreName" th:field="*{name}" th:value="*{name}" placeholder="np. Horror">
+    <p th:errors="*{name}" class="error">Błędy związane z nazwą</p>
+    <label for="genreDescription">Opis - max 500 znaków</label>
+    <textarea id="genreDescription" rows="5" th:field="*{description}" th:value="*{description}"></textarea>
+    <p th:errors="*{description}" class="error">Błędy związane z opisem</p>
+    <button type="submit">Zapisz zmiany</button>
+  </form>
+
+</main>
+</body>
+</html>

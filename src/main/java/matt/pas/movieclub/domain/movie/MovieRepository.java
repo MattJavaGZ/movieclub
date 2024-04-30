@@ -14,4 +14,7 @@ public interface MovieRepository extends CrudRepository<Movie, Long> {
     List<Movie> findTopByRating(Pageable pages);
 
     List<Movie> findAllByTitleContainsIgnoreCase(String title);
+
+    List<Movie> findAllByRatings_User_Email(String email);
+    List<Movie> findAllByComments_User_Email(String email);
 }

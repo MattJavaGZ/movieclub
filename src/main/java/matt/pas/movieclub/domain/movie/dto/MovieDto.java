@@ -4,6 +4,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import matt.pas.movieclub.domain.genre.Genre;
 
+import java.util.Objects;
+
 public class MovieDto {
 
     private Long id;
@@ -130,5 +132,18 @@ public class MovieDto {
 
     public void setRatingCount(int ratingCount) {
         this.ratingCount = ratingCount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MovieDto movieDto = (MovieDto) o;
+        return releaseYear == movieDto.releaseYear && promoted == movieDto.promoted && Double.compare(movieDto.avgRating, avgRating) == 0 && ratingCount == movieDto.ratingCount && Objects.equals(id, movieDto.id) && Objects.equals(title, movieDto.title) && Objects.equals(oryginalTitle, movieDto.oryginalTitle) && Objects.equals(shortDescription, movieDto.shortDescription) && Objects.equals(description, movieDto.description) && Objects.equals(youtubeTrailerId, movieDto.youtubeTrailerId) && Objects.equals(genre, movieDto.genre) && Objects.equals(poster, movieDto.poster);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, oryginalTitle, releaseYear, shortDescription, description, youtubeTrailerId, genre, promoted, poster, avgRating, ratingCount);
     }
 }

@@ -1,7 +1,9 @@
 package matt.pas.movieclub.domain.movie;
 
 import matt.pas.movieclub.domain.movie.dto.MovieDto;
+import matt.pas.movieclub.domain.movie.dto.MovieSaveDto;
 import matt.pas.movieclub.domain.rating.Rating;
+import org.springframework.web.multipart.MultipartFile;
 
 public class MovieDtoMapper {
 
@@ -20,11 +22,24 @@ public class MovieDtoMapper {
                 movie.getShortDescription(),
                 movie.getDescription(),
                 movie.getYoutubeTrailerId(),
-                movie.getGenre().getName(),
+                movie.getGenre() != null ? movie.getGenre().getName() : "Brak",
                 movie.isPromoted(),
                 movie.getPoster(),
                 avgRating,
                 ratingCount
         );
+    }
+    static MovieSaveDto mapToSave (Movie movie){
+        final MovieSaveDto movieSaveDto = new MovieSaveDto();
+        movieSaveDto.setTitle(movie.getTitle());
+        movieSaveDto.setOriginalTitle(movie.getOryginalTitle());
+        movieSaveDto.setReleaseYear(movie.getReleaseYear());
+        movieSaveDto.setShortDescription(movie.getShortDescription());
+        movieSaveDto.setDescription(movie.getDescription());
+        movieSaveDto.setYoutubeTrailerId(movie.getYoutubeTrailerId());
+        movieSaveDto.setGenre(movie.getGenre().getName());
+        movieSaveDto.setPromoted(movie.isPromoted());
+        movieSaveDto.setPoster(null);
+        return movieSaveDto;
     }
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}">
+<head>
+    <title>Formularz edycji użytkownika</title>
+</head>
+<body>
+    <main class="main-content" layout:fragment="content">
+        <h2 class="list-heading" th:text="${header}">Edycja</h2>
+        <form action="#" th:action="@{|/admin/lista-uzytkownikow/edycja-${type}/${id}|}" method="post" class="mc-form">
+            <input th:type="${type}" required th:name="${type}">
+            <button type="submit">Zapisz zmiany</button>
+        </form>
+
+    </main>
+</body>
+</html>

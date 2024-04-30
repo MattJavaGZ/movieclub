@@ -1,8 +1,10 @@
 package matt.pas.movieclub.domain.rating;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Null;
 import matt.pas.movieclub.domain.movie.Movie;
 import matt.pas.movieclub.domain.user.User;
+import org.hibernate.annotations.OnDelete;
 
 @Entity
 @Table(name = "movie_rating")

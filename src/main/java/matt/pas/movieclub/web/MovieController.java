@@ -62,6 +62,15 @@ public class MovieController {
     String findByTitle(Model model, @RequestParam String title) {
         final List<MovieDto> moviesByTitle = movieService.findByTitle(title);
         model.addAttribute("movies", moviesByTitle);
+        if (moviesByTitle.isEmpty()) {
+            model.addAttribute("heading", "Żaden film nie został odnaleziony");
+        }
+        else model.addAttribute("heading", "Wyszukane filmy:");
         return "movie-listing";
+    }
+    @GetMapping("/admin/usun-film/{id}")
+        String deleteMovie(@PathVariable long id) {
+        movieService.deleteMovie(id);
+        return "redirect:/";
     }
 }

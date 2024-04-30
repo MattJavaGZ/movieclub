@@ -1,6 +1,8 @@
 package matt.pas.movieclub.domain.user;
 
 import jakarta.persistence.*;
+import matt.pas.movieclub.domain.comment.Comment;
+import matt.pas.movieclub.domain.rating.Rating;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private List<UserRole> roles = new ArrayList<>();
+
 
     public Long getId() {
         return id;
@@ -52,5 +55,7 @@ public class User {
     public void setRoles(List<UserRole> roles) {
         this.roles = roles;
     }
+
+
 }
 

@@ -55,6 +55,9 @@ i powinna zajmować większość dostępnej przestrzeni
     text-align: center;
     display: none;
 }
+#favorite-icon{
+    color: red;
+}
 
 /*Po wciśnięciu przycisku elementy będą widoczne*/
 .expanded > .menu-item {
@@ -434,3 +437,15 @@ textarea {
     text-align: center;
 }
 /*komentarze stop*/
+.edit-genre-link{
+    font-size: small;
+}
+.users-admin-list{
+    margin: 20px auto;
+    padding: 5px;
+    text-align: center;
+}
+.users-admin-list-td{
+    padding: 10px;
+}
+

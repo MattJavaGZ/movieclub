@@ -19,14 +19,26 @@
                 <div class="movie-summary-info">
                     <h1 class="movie-summary-title" th:text="${movie.title}">Władca pierścieni</h1>
                     <p class="movie-summary-original-title" th:text="${movie.oryginalTitle}">Lord of the rings</p>
+                    <p class="movie-summary-item" sec:authorize="hasAnyRole('ADMIN', 'EDITOR')">
+                        <a href="#" th:href="@{|/admin/edytuj-film/${movie.id}|}">Edytuj</a><br>
+                        <a href="#" th:href="@{|/admin/usun-film/${movie.id}|}">Usuń</a>
+                    </p>
                     <p class="movie-summary-item" th:text="|Rok: ${movie.releaseYear}|">Rok: 2001</p>
                     <p class="movie-summary-item">Gatunek: <a href="#"
-                                                              th:href="@{|/gatunek/${movie.genre}|}"
+                                                              th:href="${movie.genre != 'Brak'} ?
+                                                                @{|/gatunek/${movie.genre}|} : @{/gatunki-filmowe}"
                                                               th:text="${movie.genre}"
                     >Fantasy</a></p>
                     <p class="movie-summary-item" th:text="${movie.shortDescription}">
                         Podróż odważnego hobbita i jego towarzyszy w poszukiwaniu pierścienia.
                     </p>
+                    <div class="favorite">
+
+                        <a th:if="!${@favorite.isExist(movie)}" href="#" th:href="@{|/favorite/dodaj/${movie.id}|}">
+                            <i class="fa-solid fa-heart" style="color: red"></i> Dodaj do ulubionych</a>
+                        <a th:if="${@favorite.isExist(movie)}" href="#" th:href="@{|/favorite/usun/${movie.id}|}">
+                            <i class="fa-regular fa-heart" style="color: red"></i> Usuń z ulubionych</a>
+                    </div>
                 </div>
             </div>
             <div class="movie-rating-container movie-section">
@@ -79,9 +91,12 @@
                 <ul>
                     <li th:each="comment: ${comments}" class="comment">
                         <p th:text="|Dodany: ${#temporals.format(comment.getDateAdded(), 'dd-MM-yyyy HH:mm')}|"
-                           class="comment-date">Dodana
+                           class="comment-date">Dodany
                             22-07-2021</p>
                         <p  th:text="${comment.content}"></p>
+                        <p sec:authorize="hasAnyRole('ADMIN', 'EDITOR')">
+                            <a href="#" th:href="@{|/usun-komentarz/${comment.id}|}">Usuń</a>
+                        </p>
                     </li>
                 </ul>
             </div>

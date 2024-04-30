@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Brak dostępu</title>
+</head>
+<body>
+  <main class="main-content" layout:fragment="content">
+    <h1 class="list-heading">Nie masz dostępu do tej sekcji !</h1>
+    <p style="text-align: center"><a href="#" th:href="@{/}">Powrót do strony głównej</a> </p>
+  </main>
+</body>
+</html>

@@ -15,7 +15,7 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "movie_id")
     private Movie movie;
     private String content;

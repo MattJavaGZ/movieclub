@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}">
+<head>
+  <title>Panel użytkownika</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+  <h2 sec:authorize="hasRole('BLOCK')" class="list-heading">Zostałeś zablokowany</h2>
+
+  <div sec:authorize="!hasRole('BLOCK')">
+    <h2 class="list-heading">Panel użytkownika</h2>
+
+    <ul class="list-border">
+      <li><a href="#" th:href="@{/user/ocenione-filmy}">Ocenione filmy</a></li>
+      <li><a href="#" th:href="@{/user/skomentowane-filmy}">Skomentowane filmy</a> </li>
+    </ul>
+  </div>
+
+</main>
+</body>
+</html>
