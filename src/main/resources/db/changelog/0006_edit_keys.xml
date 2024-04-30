@@ -6,7 +6,7 @@
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
     <changeSet id="0006-1" author="Matt">
         <dropForeignKeyConstraint baseTableName="movie" constraintName="fk_movie_genre"/>
-        <dropNotNullConstraint tableName="movie" columnName="genre_id"/>
+        <dropNotNullConstraint tableName="movie" columnName="genre_id" columnDataType="BIGINT"/>
         <addForeignKeyConstraint baseTableName="movie" baseColumnNames="genre_id" constraintName="fk_movie_genre"
                                  referencedTableName="genre"
                                  referencedColumnNames="id" onDelete="SET NULL"/>
@@ -14,24 +14,24 @@
     </changeSet>
     <changeSet id="0006-2" author="Matt">
         <dropForeignKeyConstraint baseTableName="movie_rating" constraintName="fk_movie_rating_user_id"/>
-        <dropNotNullConstraint tableName="movie_rating" columnName="user_id"/>
+        <dropNotNullConstraint tableName="movie_rating" columnName="user_id" columnDataType="BIGINT"/>
         <addForeignKeyConstraint baseTableName="movie_rating" baseColumnNames="user_id" constraintName="fk_movie_rating_user_id"
                                  referencedTableName="users"
                                  referencedColumnNames="id" onDelete="SET NULL"/>
         <dropForeignKeyConstraint baseTableName="movie_rating" constraintName="fk_movie_rating_movie_id"/>
-        <dropNotNullConstraint tableName="movie_rating" columnName="movie_id"/>
+        <dropNotNullConstraint tableName="movie_rating" columnName="movie_id" columnDataType="BIGINT"/>
         <addForeignKeyConstraint baseTableName="movie_rating" baseColumnNames="movie_id" constraintName="fk_movie_rating_movie_id"
                                  referencedTableName="movie"
                                  referencedColumnNames="id" onDelete="SET NULL"/>
     </changeSet>
     <changeSet id="0006_3" author="Matt">
         <dropForeignKeyConstraint baseTableName="comment" constraintName="fk_comment_user_id"/>
-        <dropNotNullConstraint tableName="comment" columnName="user_id"/>
+        <dropNotNullConstraint tableName="comment" columnName="user_id" columnDataType="BIGINT"/>
         <addForeignKeyConstraint baseTableName="comment" baseColumnNames="user_id" constraintName="fk_comment_user_id"
                                  referencedTableName="users"
                                  referencedColumnNames="id" onDelete="SET NULL"/>
         <dropForeignKeyConstraint baseTableName="comment" constraintName="fk_comment_movie_id"/>
-        <dropNotNullConstraint tableName="comment" columnName="movie_id"/>
+        <dropNotNullConstraint tableName="comment" columnName="movie_id" columnDataType="BIGINT"/>
         <addForeignKeyConstraint baseTableName="comment" baseColumnNames="movie_id" constraintName="fk_comment_movie_id"
                                  referencedTableName="movie"
                                  referencedColumnNames="id" onDelete="SET NULL"/>
