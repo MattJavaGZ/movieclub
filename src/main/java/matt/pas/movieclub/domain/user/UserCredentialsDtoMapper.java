@@ -19,6 +19,7 @@ public class UserCredentialsDtoMapper {
                     user.getId(),
                     user.getEmail(),
                     user.getPassword(),
+                    user.getNick(),
                     user.getRoles().stream()
                             .map(UserRole::getName)
                             .toList()

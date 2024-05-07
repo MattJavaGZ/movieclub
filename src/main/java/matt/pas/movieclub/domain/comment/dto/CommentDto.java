@@ -6,11 +6,13 @@ public class CommentDto {
     private Long id;
     private String content;
     private LocalDateTime dateAdded;
+    private String authorNick;
 
-    public CommentDto(Long id, String content, LocalDateTime dateAdded) {
+    public CommentDto(Long id, String content, LocalDateTime dateAdded, String authorNick) {
         this.id = id;
         this.content = content;
         this.dateAdded = dateAdded;
+        this.authorNick = authorNick;
     }
 
     public Long getId() {
@@ -35,5 +37,13 @@ public class CommentDto {
 
     public void setDateAdded(LocalDateTime dateAdded) {
         this.dateAdded = dateAdded;
+    }
+
+    public String getAuthorNick() {
+        return authorNick;
+    }
+
+    public void setAuthorNick(String authorNick) {
+        this.authorNick = authorNick;
     }
 }

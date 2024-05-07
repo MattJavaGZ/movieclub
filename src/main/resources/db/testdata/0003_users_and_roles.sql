@@ -1,9 +1,9 @@
 insert into
-    users (email, password)
+    users (email, password, nick, activ)
 values
-    ('admin@admin.pl', '{noop}admin'),   -- 1
-    ('user@user.pl', '{noop}user'),     -- 2
-    ('editor@editor.pl', '{noop}editor'); -- 3
+    ('admin@admin.pl', '{noop}admin', 'admin', true),   -- 1
+    ('user@user.pl', '{noop}user', 'user', true),  -- 2
+    ('editor@editor.pl', '{noop}editor', 'redaktor', true); -- 3
 
 insert into
     user_role (name, description)

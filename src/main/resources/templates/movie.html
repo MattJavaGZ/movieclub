@@ -90,8 +90,10 @@
             <div class="added-coments">
                 <ul>
                     <li th:each="comment: ${comments}" class="comment">
+                        <p th:text="|Autor: ${comment.authorNick}|"
+                           class="comment-item">Nick autora</p>
                         <p th:text="|Dodany: ${#temporals.format(comment.getDateAdded(), 'dd-MM-yyyy HH:mm')}|"
-                           class="comment-date">Dodany
+                           class="comment-item">Dodany
                             22-07-2021</p>
                         <p  th:text="${comment.content}"></p>
                         <p sec:authorize="hasAnyRole('ADMIN', 'EDITOR')">

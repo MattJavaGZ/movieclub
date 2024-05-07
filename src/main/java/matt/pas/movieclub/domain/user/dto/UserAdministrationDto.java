@@ -7,12 +7,14 @@ public class UserAdministrationDto {
     private Long id;
     private String email;
     private String password;
+    private String nick;
     private List<String> roles = new ArrayList<>();
 
-    public UserAdministrationDto(Long id, String email, String password, List<String> roles) {
+    public UserAdministrationDto(Long id, String email, String password, String nick, List<String> roles) {
         this.id = id;
         this.email = email;
         this.password = password;
+        this.nick = nick;
         this.roles = roles;
     }
 
@@ -46,5 +48,13 @@ public class UserAdministrationDto {
 
     public void setRoles(List<String> roles) {
         this.roles = roles;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 }

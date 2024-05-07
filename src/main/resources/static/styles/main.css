@@ -430,7 +430,7 @@ textarea {
     border: 1px #6d6d6d solid;
     text-align: center;
 }
-.comment-date{
+.comment-item{
     font-size: 10px;
 }
 .add-comment{
@@ -448,4 +448,5 @@ textarea {
 .users-admin-list-td{
     padding: 10px;
 }
+
 

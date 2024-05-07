@@ -22,6 +22,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private List<UserRole> roles = new ArrayList<>();
+    private String nick;
+    private boolean activ;
+    private String activKey;
 
 
     public Long getId() {
@@ -56,6 +59,28 @@ public class User {
         this.roles = roles;
     }
 
+    public String getNick() {
+        return nick;
+    }
 
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public boolean isActiv() {
+        return activ;
+    }
+
+    public void setActiv(boolean activ) {
+        this.activ = activ;
+    }
+
+    public String getActivKey() {
+        return activKey;
+    }
+
+    public void setActivKey(String activKey) {
+        this.activKey = activKey;
+    }
 }
 

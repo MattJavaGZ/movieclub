@@ -18,7 +18,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userService.findUserByEmail(username)
+        return userService.findActivUserByEmail(username)
                 .map(this::userToUserDetails)
                 .orElseThrow(() -> new UsernameNotFoundException("Brak użytkownika o nazwie " + username));
     }

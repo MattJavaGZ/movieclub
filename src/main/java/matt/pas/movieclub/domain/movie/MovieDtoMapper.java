@@ -3,7 +3,6 @@ package matt.pas.movieclub.domain.movie;
 import matt.pas.movieclub.domain.movie.dto.MovieDto;
 import matt.pas.movieclub.domain.movie.dto.MovieSaveDto;
 import matt.pas.movieclub.domain.rating.Rating;
-import org.springframework.web.multipart.MultipartFile;
 
 public class MovieDtoMapper {
 

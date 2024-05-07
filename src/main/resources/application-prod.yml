@@ -13,5 +13,9 @@ spring:
 app:
   storage:
     location: uploads
+  email:
+    url: https://matt-java.pl
+
+
 
 
